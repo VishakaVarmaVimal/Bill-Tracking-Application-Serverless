@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
         },
         KeyConditionExpression: "userID = :userid", 
         FilterExpression: "time_to_live > :current_time",
-        TableName: 'DynamoTable_Test'
+        TableName: process.env.DYNAMODB_TABLE
     };
     ddb.query(queryParams, function(err, data) {
         if (err) {
@@ -24,7 +24,7 @@ exports.handler = (event, context, callback) => {
                 return;
             }
             var put_params = {
-                TableName: 'DynamoTable_Test',
+                TableName: process.env.DYNAMODB_TABLE,
                 Item: {
                     'userID' : {S: message.userID},
                     'token' : {S: tokenID},
