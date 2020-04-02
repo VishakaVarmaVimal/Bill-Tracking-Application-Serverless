@@ -55,7 +55,7 @@ exports.handler = (event, context, callback) => {
                             Subject: { Data: "[csye6225-spring2020-Assignment_10] Requested Bills"
                             }
                         },
-                        Source: "admin@dev.vishakavarma.com"
+                        Source: "admin@"+process.env.DEVELOPMENT_TYPE+".vishakavarma.com"
                     };
                     ses.sendEmail(params, function (err, data) {
                         callback(null, {err: err, data: data});
