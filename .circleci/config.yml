@@ -20,7 +20,7 @@ jobs:
           name: Zip and push Lambda to S3 Bucket
           command: |
             zip -r lambda.zip index.js
-            aws s3 cp lambda.zip s3://vishaka-serverless-lambda-function/
+            aws s3 cp lambda.zip s3://prod-vishaka-serverless-lambda-function/
 
 workflows:
   version: 2
