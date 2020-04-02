@@ -25,7 +25,7 @@ jobs:
 workflows:
   version: 2
 
-  packer_buid:
+  lambda_buid:
     jobs:
       - build:
           filters:
